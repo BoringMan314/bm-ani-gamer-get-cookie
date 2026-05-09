@@ -1,0 +1,18 @@
+{
+	"copyCookieButton": { "message": "Cookie をコピー" },
+	"extDescription": {
+		"message": "動畫瘋（ani.gamer.com.tw）向けのブラウザ拡張機能：Cookie 文字列を提供します。aniGamerPlus などの cookie.txt に貼り付けてご利用ください。シークレットウィンドウでログインし、「ログイン状態を保持」にチェックすることをおすすめします。"
+	},
+	"extName": { "message": "[B.M] 動畫瘋 Cookie 取得" },
+	"noCookies": {
+		"message": "Cookie を取得できませんでした。動畫瘋にログインして「ログイン状態を保持」にチェックを入れ、ページを再読み込みしてください。別用途で Cookie を分けたい場合はシークレットウィンドウでのログインをおすすめします。"
+	},
+	"popupTitle": { "message": "[B.M] 動畫瘋 Cookie 取得" },
+	"toastCopied": {
+		"message": "クリップボードにコピーしました。プログラムと同じフォルダにある cookie.txt に貼り付けできます。"
+	},
+	"toastCopyFailed": { "message": "コピーに失敗しました。もう一度お試しください。" },
+	"underButtonHint": {
+		"message": "シークレットウィンドウで再度ログインしてから Cookie を取得することをおすすめします。"
+	}
+}

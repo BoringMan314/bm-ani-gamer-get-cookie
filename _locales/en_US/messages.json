@@ -1,0 +1,16 @@
+{
+	"copyCookieButton": { "message": "Copy Cookie" },
+	"extDescription": {
+		"message": "Browser extension for Bahamut Anime Crazy (ani.gamer.com.tw): provides a Cookie string for pasting into cookie.txt used by aniGamerPlus and similar apps. Prefer signing in from an Incognito window with “stay signed in.”"
+	},
+	"extName": { "message": "[B.M] Bahamut Anime Crazy — export Cookie" },
+	"noCookies": {
+		"message": "No cookie found. Log in on Anime Crazy with “stay logged on”, refresh, or fetch a dedicated cookie in private browsing."
+	},
+	"popupTitle": { "message": "[B.M] Anime Crazy Cookie export" },
+	"toastCopied": { "message": "Copied. Paste into cookie.txt beside your app." },
+	"toastCopyFailed": { "message": "Copy failed; try again." },
+	"underButtonHint": {
+		"message": "We recommend signing in again in Incognito mode, then exporting your Cookie."
+	}
+}

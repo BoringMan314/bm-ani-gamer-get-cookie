@@ -1,0 +1,14 @@
+{
+	"copyCookieButton": { "message": "複製 Cookie" },
+	"extDescription": {
+		"message": "適用於 巴哈姆特動畫瘋（ani.gamer.com.tw）的瀏覽器擴充功能：提供 Cookie 字串，供貼上至 aniGamerPlus 等程式之 cookie.txt 使用。建議使用無痕視窗登入並勾選保持登入。"
+	},
+	"extName": { "message": "[B.M] 動畫瘋 獲取 Cookie" },
+	"noCookies": {
+		"message": "未取得 Cookie。請在動畫瘋登入並勾選保持登入，或換用無痕視窗取得專用 Cookie 後重整頁面。"
+	},
+	"popupTitle": { "message": "[B.M] 動畫瘋 獲取 Cookie" },
+	"toastCopied": { "message": "已複製至剪貼簿，可貼到程式目錄的 cookie.txt。" },
+	"toastCopyFailed": { "message": "複製失敗，請再試一次。" },
+	"underButtonHint": { "message": "建議在無痕模式中重新登入並獲取Cookie" }
+}

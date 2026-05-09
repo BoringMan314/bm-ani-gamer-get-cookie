@@ -1,0 +1,19 @@
+{
+	"manifest_version": 3,
+	"name": "__MSG_extName__",
+	"version": "0.1.0",
+	"description": "__MSG_extDescription__",
+	"default_locale": "zh_TW",
+	"icons": {
+		"128": "icons/icon.png"
+	},
+	"permissions": ["cookies"],
+	"host_permissions": ["https://ani.gamer.com.tw/*", "https://api.gamer.com.tw/*"],
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"128": "icons/icon.png"
+		},
+		"default_title": "__MSG_extName__"
+	}
+}

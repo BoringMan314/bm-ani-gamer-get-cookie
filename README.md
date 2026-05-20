@@ -3,6 +3,7 @@
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue)](https://developer.chrome.com/docs/extensions/mv3/)
 [![Site](https://img.shields.io/badge/site-ani.gamer.com.tw-5865F2)](https://ani.gamer.com.tw)
 [![GitHub](https://img.shields.io/badge/GitHub-bm--ani--gamer--get--cookie-181717?logo=github)](https://github.com/BoringMan314/bm-ani-gamer-get-cookie)
+[![GitHub all releases](https://img.shields.io/github/downloads/BoringMan314/bm-ani-gamer-get-cookie/total)](https://github.com/BoringMan314/bm-ani-gamer-get-cookie/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 適用於 [巴哈姆特動畫瘋](https://ani.gamer.com.tw)（`ani.gamer.com.tw`）的瀏覽器擴充功能：提供 Cookie 字串，供貼上至 aniGamerPlus 等程式之 cookie.txt 使用。建議使用無痕視窗登入並勾選保持登入。

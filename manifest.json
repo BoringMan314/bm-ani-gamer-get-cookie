@@ -8,8 +8,8 @@
 	"icons": {
 		"128": "icons/icon.png"
 	},
-	"permissions": ["cookies"],
-	"host_permissions": ["https://ani.gamer.com.tw/*", "https://api.gamer.com.tw/*"],
+	"permissions": ["cookies", "tabs", "debugger"],
+	"host_permissions": ["https://*.gamer.com.tw/*"],
 	"action": {
 		"default_popup": "popup.html",
 		"default_icon": {

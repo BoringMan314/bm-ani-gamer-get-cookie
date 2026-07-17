@@ -56,7 +56,7 @@
 
 ### 從 Chrome 線上應用程式商店（建議）
 
-請在 [Chrome Web Store](https://chromewebstore.google.com/) 搜尋 **「[B.M] 動畫瘋 獲取 Cookie」**，或點擊名稱從商店頁面安裝。
+請在 [Chrome Web Store](https://chromewebstore.google.com/) 搜尋 **「[\[B.M\] 動畫瘋 獲取 Cookie](https://chromewebstore.google.com/detail/bm-%E5%8B%95%E7%95%AB%E7%98%8B-%E7%8D%B2%E5%8F%96-cookie/mldicamgcdcfgdjibcojgfcnljooclen)」**，或點擊名稱從商店頁面安裝。
 
 ### 從原始碼載入（開發人員模式）
 

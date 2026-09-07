@@ -1,5 +1,8 @@
 {
+	"openAniButton": { "message": "Open Anime Crazy" },
+	"openMonitorButton": { "message": "Open Control Panel" },
 	"copyCookieButton": { "message": "Copy Cookie" },
+	"sendCookieButton": { "message": "Send Cookie Directly" },
 	"extDescription": {
 		"message": "Browser extension for Bahamut Anime Crazy (ani.gamer.com.tw): provides a Cookie string for pasting into cookie.txt used by aniGamerPlus and similar apps. Prefer signing in from an Incognito window with “stay signed in.”"
 	},
@@ -10,6 +13,13 @@
 	"popupTitle": { "message": "[B.M] Anime Crazy Cookie export" },
 	"toastCopied": { "message": "Copied. Paste into cookie.txt beside your app." },
 	"toastCopyFailed": { "message": "Copy failed; try again." },
+	"toastSendSucceeded": { "message": "Sent successfully: Cookie refreshed" },
+	"toastSendNoCookie": { "message": "Send failed: No Cookie found" },
+	"toastSendConnectionFailed": { "message": "Send failed: Cannot connect to aniGamerPlus" },
+	"toastSendHandshakeFailed": { "message": "Send failed: Handshake failed; restart aniGamerPlus" },
+	"toastSendIncompatible": { "message": "Send failed: Incompatible aniGamerPlus version" },
+	"toastSendInvalidCookie": { "message": "Send failed: Invalid Cookie format" },
+	"toastSendWriteFailed": { "message": "Send failed: cookie.txt write or verification failed" },
 	"underButtonHint": {
 		"message": "We recommend signing in again in Incognito mode, then exporting your Cookie."
 	}

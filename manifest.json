@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "__MSG_extName__",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "__MSG_extDescription__",
 	"default_locale": "zh_TW",
 	"homepage_url": "https://github.com/BoringMan314/bm-ani-gamer-get-cookie",
@@ -14,7 +14,8 @@
 		"debugger"
 	],
 	"host_permissions": [
-		"https://*.gamer.com.tw/*"
+		"https://*.gamer.com.tw/*",
+		"http://127.0.0.1/*"
 	],
 	"action": {
 		"default_popup": "popup.html",

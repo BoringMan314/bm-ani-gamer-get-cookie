@@ -41,7 +41,10 @@
 - 僅讀取 **動畫瘋**（`https://ani.gamer.com.tw`，含對 **`api.gamer.com.tw`** 之 partitioned Cookie）情境下之一組 Cookie，與 DevTools 於動畫瘋頁請求 API 所見對齊。
 - 略過 **`ckBH_lastBoard`**（方便對齊 aniGamerPlus 慣例）。
 - 若目前視窗的焦點分頁為 **`ani.gamer.com.tw`**，優先使用該分頁所屬 **Cookie store**（例如無痕與一般視窗分流）。
-- **Manifest V3**，介面為 [`popup`](popup.html)；僅宣告 **`cookies`** 與 **`https://ani.gamer.com.tw/*`、`https://api.gamer.com.tw/*`** 之 host 權限（不含論壇／首頁等其他 gamer 子站）。
+- Popup 提供「開啟動畫瘋」，在新分頁前往 `https://ani.gamer.com.tw/`。
+- Popup 提供「開啟控制面板」，在新分頁前往本機 aniGamerPlus 面板首頁 `http://127.0.0.1:5000/`。
+- Popup 提供「直接傳送 Cookie」：先和本機 aniGamerPlus（`127.0.0.1:5000`）握手，成功後將 Cookie 傳給程式並由程式寫入自己的 `cookie.txt`；未啟動、版本不相容或寫入驗證失敗時，會顯示具體原因。原有的「複製 Cookie」仍可作為手動備援。
+- **Manifest V3**，介面為 [`popup`](popup.html)；宣告 **`cookies`**、動畫瘋的 `https://*.gamer.com.tw/*` 與本機 aniGamerPlus 的 `http://127.0.0.1/*` host 權限。
 - 建議在 **無痕視窗** 登入動畫瘋並勾選 **保持登入**，取得獨立、可汰換的 Cookie；複製前讓 **動畫瘋分頁為目前視窗作用中分頁**，可降低選錯 Cookie 集合的機率。
 
 ---
@@ -63,7 +66,7 @@
 1. 點選本頁綠色 **Code** → **Download ZIP** 解壓，或執行 `git clone https://github.com/BoringMan314/bm-ani-gamer-get-cookie.git` 複製本倉庫。
 2. 以 **Chrome** 或 **Microsoft Edge** 開啟 `chrome://extensions`（在 Edge 為 `edge://extensions`）。
 3. 開啟「**開發人員模式**」→「**載入未封裝項目**」→ 選取含 [`manifest.json`](manifest.json) 的**專案根目錄**（勿選子資料夾）。
-4. 點工具列圖示開啟 popup，於動畫瘋登入後再試「複製 Cookie」。
+4. 點工具列圖示開啟 popup，於動畫瘋登入後可使用「複製 Cookie」；若已啟動預設埠號的 aniGamerPlus，也可使用「直接傳送 Cookie」。
 
 ---
 
@@ -75,8 +78,8 @@
 
 ## 技術概要
 
-- [`popup.js`](popup.js)：使用 `chrome.cookies.getAll` / `getAllCookieStores`，僅讀取 **`topLevelSite: https://ani.gamer.com.tw`** 之 partitioned Cookie（`ani`／`api` 網址篩選）；將結果寫入剪貼簿。
-- 不向任何遠端網址送出 Cookie（無背景 `fetch` 上傳）。
+- [`popup.js`](popup.js)：使用 `chrome.cookies.getAll` / `getAllCookieStores`，僅讀取 **`topLevelSite: https://ani.gamer.com.tw`** 之 partitioned Cookie（`ani`／`api` 網址篩選）；可寫入剪貼簿，或經本機握手端點傳給 aniGamerPlus。
+- 不向任何遠端網址送出 Cookie（無背景遠端 `fetch` 上傳）；「直接傳送 Cookie」只會傳送至本機 `127.0.0.1` 的 aniGamerPlus。
 
 ---
 
@@ -103,7 +106,7 @@
 
 ## 隱私說明
 
-本擴充**不蒐集、不上傳** Cookie 至開發者伺服器；僅在您按下按鈕時於本機讀取並寫入剪貼簿。**未內建**遠端可執行程式、分析或廣告追蹤。詳見 [`privacy-policy.html`](privacy-policy.html)。
+本擴充**不蒐集、不上傳** Cookie 至開發者伺服器；僅在您按下按鈕時於本機讀取並寫入剪貼簿，或傳送至本機 `127.0.0.1` 的 aniGamerPlus 以更新其 `cookie.txt`。**未內建**遠端可執行程式、分析或廣告追蹤。詳見 [`privacy-policy.html`](privacy-policy.html)。
 
 **上架提醒**：若上架 Chrome Web Store，須在開發人員後台完成隱私實踐聲明，並提供本政策之**公開 HTTPS 網址**（建議以 [GitHub Pages](https://pages.github.com/) 託管專案內的 `privacy-policy.html`）。
 

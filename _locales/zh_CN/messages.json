@@ -1,5 +1,8 @@
 {
+	"openAniButton": { "message": "打开动画疯" },
+	"openMonitorButton": { "message": "打开控制面板" },
 	"copyCookieButton": { "message": "复制 Cookie" },
+	"sendCookieButton": { "message": "直接发送 Cookie" },
 	"extDescription": {
 		"message": "适用于巴哈姆特动画疯（ani.gamer.com.tw）的浏览器扩展功能：提供 Cookie 字符串，供粘贴到 aniGamerPlus 等程序的 cookie.txt 使用。建议使用无痕窗口登录并勾选保持登录。"
 	},
@@ -10,5 +13,12 @@
 	"popupTitle": { "message": "[B.M] 巴哈姆特动画疯 获取 Cookie" },
 	"toastCopied": { "message": "已复制到剪贴板，可粘贴到程序目录的 cookie.txt。" },
 	"toastCopyFailed": { "message": "复制失败，请重试。" },
+	"toastSendSucceeded": { "message": "发送成功：已刷新 Cookie" },
+	"toastSendNoCookie": { "message": "发送失败：未获取 Cookie" },
+	"toastSendConnectionFailed": { "message": "发送失败：无法连接至 aniGamerPlus" },
+	"toastSendHandshakeFailed": { "message": "发送失败：握手失败，请重启 aniGamerPlus" },
+	"toastSendIncompatible": { "message": "发送失败：aniGamerPlus 版本不兼容" },
+	"toastSendInvalidCookie": { "message": "发送失败：Cookie 格式无效" },
+	"toastSendWriteFailed": { "message": "发送失败：cookie.txt 写入或验证失败" },
 	"underButtonHint": { "message": "建议在无痕模式中重新登录并获取 Cookie。" }
 }

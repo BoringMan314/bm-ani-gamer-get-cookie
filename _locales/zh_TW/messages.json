@@ -1,5 +1,8 @@
 {
+	"openAniButton": { "message": "開啟動畫瘋" },
+	"openMonitorButton": { "message": "開啟控制面板" },
 	"copyCookieButton": { "message": "複製 Cookie" },
+	"sendCookieButton": { "message": "直接傳送 Cookie" },
 	"extDescription": {
 		"message": "適用於 巴哈姆特動畫瘋（ani.gamer.com.tw）的瀏覽器擴充功能：提供 Cookie 字串，供貼上至 aniGamerPlus 等程式之 cookie.txt 使用。建議使用無痕視窗登入並勾選保持登入。"
 	},
@@ -10,5 +13,12 @@
 	"popupTitle": { "message": "[B.M] 動畫瘋 獲取 Cookie" },
 	"toastCopied": { "message": "已複製至剪貼簿，可貼到程式目錄的 cookie.txt。" },
 	"toastCopyFailed": { "message": "複製失敗，請再試一次。" },
+	"toastSendSucceeded": { "message": "傳送成功：已刷新 Cookie" },
+	"toastSendNoCookie": { "message": "傳送失敗：未取得 Cookie" },
+	"toastSendConnectionFailed": { "message": "傳送失敗：無法連線至 aniGamerPlus" },
+	"toastSendHandshakeFailed": { "message": "傳送失敗：握手失敗，請重新啟動 aniGamerPlus" },
+	"toastSendIncompatible": { "message": "傳送失敗：aniGamerPlus 版本不相容" },
+	"toastSendInvalidCookie": { "message": "傳送失敗：Cookie 格式無效" },
+	"toastSendWriteFailed": { "message": "傳送失敗：cookie.txt 寫入或驗證失敗" },
 	"underButtonHint": { "message": "建議在無痕模式中重新登入並獲取Cookie" }
 }

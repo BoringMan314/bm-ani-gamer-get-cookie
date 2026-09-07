@@ -2,11 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 	const popupTitle = document.getElementById('popupTitle');
+	const openAniBtn = document.getElementById('openAniBtn');
+	const openMonitorBtn = document.getElementById('openMonitorBtn');
 	const copyBtn = document.getElementById('copyBtn');
+	const sendCookieBtn = document.getElementById('sendCookieBtn');
 	const underBtnHint = document.getElementById('underBtnHint');
 	const toast = document.getElementById('toast');
 
-	if (!popupTitle || !copyBtn || !underBtnHint || !toast) {
+	if (!popupTitle || !openAniBtn || !openMonitorBtn || !copyBtn || !sendCookieBtn || !underBtnHint || !toast) {
 		return;
 	}
 
@@ -15,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	const ANI_ORIGIN = 'https://ani.gamer.com.tw/';
+	const MONITOR_URL = 'http://127.0.0.1:5000/';
+	const HANDSHAKE_URL = 'http://127.0.0.1:5000/api/extension/handshake';
+	const COOKIE_ENDPOINT = '/api/extension/cookie';
+	const TOAST_DURATION_MS = 10_000;
+	let toastTimer;
 
 	function includeForAniGamerPlus(name) {
 		if (name === 'nologinuser' || name === 'ckM' || name === 'age_limit_content' || name === 'avtrv') {
@@ -31,12 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function showToast(message, kind) {
+		clearTimeout(toastTimer);
 		toast.hidden = false;
 		toast.textContent = message;
 		toast.dataset.kind = kind;
+		toastTimer = setTimeout(clearToast, TOAST_DURATION_MS);
 	}
 
 	function clearToast() {
+		clearTimeout(toastTimer);
+		toastTimer = undefined;
 		toast.hidden = true;
 		toast.textContent = '';
 		delete toast.dataset.kind;
@@ -188,10 +200,69 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
+	async function fetchWithTimeout(url, options = {}) {
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), 3_000);
+		try {
+			return await fetch(url, { ...options, signal: controller.signal });
+		} finally {
+			clearTimeout(timeout);
+		}
+	}
+
+	async function sendCookieToAniGamerPlus() {
+		clearToast();
+		sendCookieBtn.disabled = true;
+		try {
+			const entries = await collectBahamutCookieEntries();
+			if (!entries.length) throw new Error('toastSendNoCookie');
+
+			const handshake = await fetchWithTimeout(HANDSHAKE_URL);
+			if (!handshake.ok) throw new Error('toastSendHandshakeFailed');
+			const service = await handshake.json();
+			if (service?.protocol !== 1 || service.cookieEndpoint !== COOKIE_ENDPOINT) {
+				throw new Error('toastSendIncompatible');
+			}
+
+			const response = await fetchWithTimeout(
+				new URL(service.cookieEndpoint, HANDSHAKE_URL),
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ entries }),
+				},
+			);
+			if (response.status === 400) throw new Error('toastSendInvalidCookie');
+			if (!response.ok) throw new Error('toastSendWriteFailed');
+			const result = await response.json();
+			if (result?.ok !== true) throw new Error('toastSendWriteFailed');
+			showToast(t('toastSendSucceeded'), 'ok');
+		} catch (error) {
+			const messageKey = error?.message?.startsWith('toastSend')
+				? error.message
+				: 'toastSendConnectionFailed';
+			showToast(t(messageKey), 'err');
+		} finally {
+			sendCookieBtn.disabled = false;
+		}
+	}
+
 	popupTitle.textContent = t('popupTitle');
+	openAniBtn.textContent = t('openAniButton');
+	openMonitorBtn.textContent = t('openMonitorButton');
 	copyBtn.textContent = t('copyCookieButton');
+	sendCookieBtn.textContent = t('sendCookieButton');
 	underBtnHint.textContent = t('underButtonHint');
+	openAniBtn.addEventListener('click', () => {
+		chrome.tabs.create({ url: ANI_ORIGIN }).catch(() => {});
+	});
+	openMonitorBtn.addEventListener('click', () => {
+		chrome.tabs.create({ url: MONITOR_URL }).catch(() => {});
+	});
 	copyBtn.addEventListener('click', () => {
 		copyCookie().catch(() => {});
+	});
+	sendCookieBtn.addEventListener('click', () => {
+		sendCookieToAniGamerPlus().catch(() => {});
 	});
 });
